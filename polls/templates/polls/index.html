@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>
+        Last 5 polls
+    </title>
+</head>
+<body>
+    <h3>Last five polls are as follows: </h3>
+</body>
+
+{% if latest_question_list %}
+    <ol>
+    {% for question in latest_question_list %}
+        <li><a href="{% url 'detail' question.id %}"><b>{{ question.question_text }}</b></a></li><br>
+    {% endfor %}
+    </ol>
+{% else %}
+    <p><i>No polls are available.</i></p>
+{% endif %}
+
+
+</html>
